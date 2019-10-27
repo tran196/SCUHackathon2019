@@ -34,4 +34,14 @@ df = DataFrame(result, columns = ["Name", "Description", "URL"])
 
 print(df)
 
-df.to_csv("test.csv", sep="\t", encoding="utf-8")
+df.to_csv("test.csv", sep="*", encoding="utf-8")
+
+outputFile = open("search.txt", "w+")
+
+for x in range(rows):
+    outputFile.write(result[x][0]+"*")
+    outputFile.write(result[x][1]+"*")
+    outputFile.write(result[x][2])
+    outputFile.write("\n")
+
+outputFile.close()
